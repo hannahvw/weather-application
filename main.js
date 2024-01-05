@@ -43,6 +43,8 @@ if (weather[city] !== undefined) {
 }
 */
 
+// Date
+
 let now = new Date();
 let hour = now.getHours();
 let minutes = now.getMinutes();
@@ -78,3 +80,16 @@ let day = days[now.getDate()];
 
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = `${day}, ${month} ${date}, ${year} ${hour}:${minutes}`;
+
+// Replace city name with searched city name
+function search(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#text-input");
+  let h1 = document.querySelector("h1");
+  if (searchInput.value) {
+    h1.innerHTML = searchInput.value;
+  }
+}
+
+let form = document.querySelector("form");
+form.addEventListener("submit", search);
