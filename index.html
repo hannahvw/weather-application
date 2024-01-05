@@ -3,46 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <title>Weather App</title>
   </head>
   <body>
-    <form>
-      <input type="text" />
-      <input type="submit" value="Search" />
-    </form>
-    <h1>Chicago</h1>
-    <p>Friday 07:30, rainy</p>
-    <p>Humidity: 75%, Wind: 2.3mph</p>
-
-    <p>34&#176; F</p>
-
-    <ul>
-      <li>
-        Sat
-        <p>34&#176; F - 10&#176; C</p>
-      </li>
-      <li>
-        Sun
-        <p>34&#176; F - 10&#176; C</p>
-      </li>
-      <li>
-        Mon
-        <p>34&#176; F - 10&#176; C</p>
-      </li>
-      <li>
-        Tue
-        <p>34&#176; F - 10&#176; C</p>
-      </li>
-      <li>
-        Wed
-        <p>34&#176; F - 10&#176; C</p>
-      </li>
-      <li>
-        Thurs
-        <p>34&#176; F - 10&#176; C</p>
-      </li>
-    </ul>
-
+    <div class="container">
+      <form>
+        <input type="text" id="text-input" placeholder="Enter a city..." />
+        <input type="submit" value="Search" id="search-btn" />
+      </form>
+      <div class="current-weather">
+        <div>
+          <h1>Chicago</h1>
+          <p class="date">Friday 07:30<p>
+          <p class="current-stats">Humidity: 75%, Wind: 2.3mph</p>
+        </div>
+        <div>
+          <p class="current-temp">34<span>&#176;F</span></p>
+          <p class="current-condition">Cloudy</p>
+        </div>
+      </div>
+      <div class="future-forecast">
+        <ul>
+          <li>
+            Sat
+            <p>34&#176; F 10&#176; C</p>
+          </li>
+          <li>
+            Sun
+            <p>34&#176; F 10&#176; C</p>
+          </li>
+          <li>
+            Mon
+            <p>34&#176; F 10&#176; C</p>
+          </li>
+          <li>
+            Tue
+            <p>34&#176; F 10&#176; C</p>
+          </li>
+          <li>
+            Wed
+            <p>34&#176; F 10&#176; C</p>
+          </li>
+          <li>
+            Thurs
+            <p>34&#176; F 10&#176; C</p>
+          </li>
+        </ul>
+      </div>
+    </div>
     <footer>
       <p>
         This project was coded by Hannah Van Wyk and is available on
