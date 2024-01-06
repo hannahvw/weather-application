@@ -1,50 +1,4 @@
-/*  WEEK 3 Homework
-
-let weather = {
-  paris: {
-    temp: 19.7,
-    humidity: 80,
-  },
-  tokyo: {
-    temp: 17.3,
-    humidity: 50,
-  },
-  lisbon: {
-    temp: 30.2,
-    humidity: 20,
-  },
-  "san francisco": {
-    temp: 20.9,
-    humidity: 100,
-  },
-  oslo: {
-    temp: -5,
-    humidity: 20,
-  },
-};
-
-// write your code here
-let city = prompt("Enter a city...");
-city = city.toLowerCase();
-
-if (weather[city] !== undefined) {
-  let temp = weather[city].temp;
-  let celciusTemp = Math.round(temp);
-  let fahrenheitTemp = Math.round(weather[city].temp * 1.8 + 32);
-  let humidity = weather[city].humidity;
-
-  alert(
-    `It is currently ${celciusTemp}°C (${fahrenheitTemp}°F) in ${city} with a humidity of ${humidity}%`
-  );
-} else {
-  alert(
-    `Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+${city}`
-  );
-}
-*/
-
 // Date
-
 let now = new Date();
 let hour = now.getHours();
 let minutes = now.getMinutes();
@@ -84,7 +38,7 @@ currentDate.innerHTML = `${day}, ${month} ${date}, ${year} ${hour}:${minutes}`;
 //display current weather function and api
 
 function displayCurrentWeather(response) {
-  console.log(response.data.condition.icon_url);
+  console.log(response.data);
   let temperature = Math.round(response.data.temperature.current);
   let humidity = response.data.temperature.humidity;
   let wind = response.data.wind.speed;
@@ -103,8 +57,8 @@ function displayCurrentWeather(response) {
   let currentCondition = document.querySelector("#current-condition");
   currentCondition.innerHTML = `${condition}`;
 
-  let currentConditionIcon = document.querySelector("#current-weather-icon");
-  currentConditionIcon.innerContent = `${icon}`;
+  let currentIcon = document.querySelector("#current-weather-icon");
+  currentIcon.innerHTML = `<img src=${icon}>`;
 }
 
 // Replace city name with searched city name
@@ -125,3 +79,25 @@ function search(event) {
 
 let form = document.querySelector("form");
 form.addEventListener("submit", search);
+
+function displayForecast(response) {
+  console.log(response.data);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+    let forecastDay = document.querySelectorAll(".forecast-day");
+    forecastDay.innerHTML = "hello";
+  
+}
+
+let city = "Chicago;";
+let apiKey = "2cacbf3044aeb9a87b5a33at06fco72a";
+let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+axios.get(forecastApiUrl).then(displayForecast);

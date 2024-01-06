@@ -68,7 +68,7 @@ h1 {
 
 .current-weather {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: start;
   margin-bottom: 2rem;
 }
@@ -112,14 +112,18 @@ h1 {
 
 li {
   list-style: none;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   border: 2px solid black;
   border-radius: 5px;
   padding: 5px;
   text-align: center;
 }
 
-li p {
-  font-weight: 300;
-  font-size: 1rem;
+li .forecast-day {
+  font-weight: 400;
+  font-size: 1.5rem;
 }
+
+
+
+
