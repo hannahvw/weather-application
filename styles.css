@@ -75,19 +75,22 @@ h1 {
 }
 
 .current-temp {
-    font-size: 3rem;
-    font-weight: 600;
     display: flex;
     align-items: start;
     gap: 5px;
 }
 
-.current-temp span {
+#current-temp {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+#units {
     font-size: 2rem;
     font-weight: 300;
 }
 
-.current-condition {
+#current-condition {
     font-size: 1.7rem;
     text-align: center;
 }
