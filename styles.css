@@ -9,18 +9,26 @@ html {
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(
+    circle at 12.3% 19.3%,
+    rgb(85, 88, 218) 0%,
+    rgb(95, 209, 249) 100.2%
+  );
 }
 
 .container {
   max-width: 725px;
   color: #fff;
-  background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);
+  background: radial-gradient(
+    circle at 12.3% 19.3%,
+    rgb(85, 88, 218) 0%,
+    rgb(95, 209, 249) 100.2%
+  );
   border: 7px solid black;
   border-radius: 10px;
   padding: 15px;
@@ -28,94 +36,90 @@ body {
 }
 
 form {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 1rem;
 }
 
 #text-input {
-    border: none;
-    height: 2.5rem;
-    width: 75%;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    padding-left: 5px;
+  border: none;
+  height: 2.5rem;
+  width: 75%;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  padding-left: 5px;
 }
 
 #search-btn {
-    height: 2.5rem;
-    width: 20%;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    padding: 0 15px;
+  height: 2.5rem;
+  width: 20%;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  padding: 0 15px;
 }
 
 h1 {
-    font-size: 3rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .current-weather {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: start;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
+  margin-bottom: 2rem;
 }
 
 #current-date {
-    font-size: 1.5rem;
-    margin-bottom: 0.2rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
 }
 
 .current-stats {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .current-temp {
-    display: flex;
-    align-items: start;
-    gap: 5px;
+  display: flex;
+  align-items: start;
+  gap: 5px;
 }
 
 #current-temp {
-    font-size: 3rem;
-    font-weight: 600;
+  font-size: 3rem;
+  font-weight: 600;
 }
 
 #units {
-    font-size: 2rem;
-    font-weight: 300;
+  font-size: 2rem;
+  font-weight: 300;
 }
 
 #current-condition {
-    font-size: 1.7rem;
-    text-align: center;
+  font-size: 1.7rem;
+  text-align: center;
 }
 
 .future-forecast ul {
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-    padding: 0 15px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  padding: 0 15px;
 }
 
-
 li {
-    list-style: none;
-    font-size: 1.3rem;
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    text-align: center;
+  list-style: none;
+  font-size: 1.3rem;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
 }
 
 li p {
-    font-weight: 300;
-    font-size: 1rem;
+  font-weight: 300;
+  font-size: 1rem;
 }
-
-
-

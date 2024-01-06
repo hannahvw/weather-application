@@ -81,30 +81,15 @@ let day = days[now.getDate()];
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = `${day}, ${month} ${date}, ${year} ${hour}:${minutes}`;
 
-// Replace city name with searched city name
-
-function search(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#text-input");
-  let h1 = document.querySelector("h1");
-  if (searchInput.value) {
-    h1.innerHTML = searchInput.value;
-  }  
-}
-
-
-
-let form = document.querySelector("form");
-form.addEventListener("submit", search);
-
 //display current weather function and api
 
 function displayCurrentWeather(response) {
+  console.log(response.data.condition.icon_url);
   let temperature = Math.round(response.data.temperature.current);
   let humidity = response.data.temperature.humidity;
   let wind = response.data.wind.speed;
   let condition = response.data.condition.description;
-console.log(response.data);
+  let icon = response.data.condition.icon_url;
 
   let currentHumidity = document.querySelector("#current-humidity");
   currentHumidity.innerHTML = `${humidity}`;
@@ -117,11 +102,26 @@ console.log(response.data);
 
   let currentCondition = document.querySelector("#current-condition");
   currentCondition.innerHTML = `${condition}`;
+
+  let currentConditionIcon = document.querySelector("#current-weather-icon");
+  currentConditionIcon.innerContent = `${icon}`;
 }
 
-let city = "Denver";
-let apiKey = "2cacbf3044aeb9a87b5a33at06fco72a";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+// Replace city name with searched city name
 
+function search(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#text-input");
+  let h1 = document.querySelector("h1");
+  if (searchInput.value) {
+    h1.innerHTML = searchInput.value;
+  }
+  let city = searchInput.value;
+  let apiKey = "2cacbf3044aeb9a87b5a33at06fco72a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
 
-axios.get(apiUrl).then(displayCurrentWeather);
+  axios.get(apiUrl).then(displayCurrentWeather);
+}
+
+let form = document.querySelector("form");
+form.addEventListener("submit", search);
