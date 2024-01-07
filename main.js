@@ -33,7 +33,7 @@ let days = [
 let day = days[now.getDay()];
 
 let currentDate = document.querySelector("#current-date");
-currentDate.innerHTML = `${day}, ${month} ${date}, ${year} ${hour}:${minutes}`;
+currentDate.innerHTML = `${day}, ${month} ${date}, ${hour}:${minutes}`;
 
 //display current weather function and api
 
@@ -85,18 +85,10 @@ form.addEventListener("submit", search);
 //forecast
 
 function formatDay(timestamp) {
-    let date = new Date(timestamp * 1000);
-    let days = [
-      "Sun",
-      "Mon",
-      "Tues",
-      "Wed",
-      "Thurs",
-      "Fri",
-      "Sat",
-    ];
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
-    return days[date.getDay()];
+  return days[date.getDay()];
 }
 
 function displayForecast(response) {
@@ -116,7 +108,8 @@ function displayForecast(response) {
           </div>
     <p>L: ${Math.round(day.temperature.minimum)}&#176;</p>    
    <p>H: ${Math.round(day.temperature.maximum)}&#176</p>
- </li>`;
+ </li>
+ <hr>`;
   });
 
   forecast.innerHTML = forecastHtml;
