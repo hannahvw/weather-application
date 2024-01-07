@@ -30,7 +30,7 @@ let days = [
   "Friday",
   "Saturday",
 ];
-let day = days[now.getDate()];
+let day = days[now.getDay()];
 
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = `${day}, ${month} ${date}, ${year} ${hour}:${minutes}`;
@@ -59,6 +59,8 @@ function displayCurrentWeather(response) {
 
   let currentIcon = document.querySelector("#current-weather-icon");
   currentIcon.innerHTML = `<img src=${icon}>`;
+
+  getForecast(response.data.city);
 }
 
 // Replace city name with searched city name
@@ -80,24 +82,49 @@ function search(event) {
 let form = document.querySelector("form");
 form.addEventListener("submit", search);
 
-function displayForecast(response) {
-  console.log(response.data);
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+//forecast
 
-    let forecastDay = document.querySelectorAll(".forecast-day");
-    forecastDay.innerHTML = "hello";
-  
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let days = [
+      "Sun",
+      "Mon",
+      "Tues",
+      "Wed",
+      "Thurs",
+      "Fri",
+      "Sat",
+    ];
+
+    return days[date.getDay()];
 }
 
-let city = "Chicago;";
-let apiKey = "2cacbf3044aeb9a87b5a33at06fco72a";
-let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
-axios.get(forecastApiUrl).then(displayForecast);
+function displayForecast(response) {
+  console.log(response.data);
+  let forecast = document.querySelector("#forecast");
+
+  let forecastHtml = "";
+
+  response.data.daily.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<li>
+   <p>${formatDay(day.time)}</p>
+   <div class="forecast-icon""> <img
+            src=${day.condition.icon_url}
+          />
+          </div>
+    <p>L: ${Math.round(day.temperature.minimum)}&#176;</p>    
+   <p>H: ${Math.round(day.temperature.maximum)}&#176</p>
+ </li>`;
+  });
+
+  forecast.innerHTML = forecastHtml;
+}
+
+function getForecast(city) {
+  let apiKey = "2cacbf3044aeb9a87b5a33at06fco72a";
+  let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
+
+  axios(forecastApiUrl).then(displayForecast);
+}
